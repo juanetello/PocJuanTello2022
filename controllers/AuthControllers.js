@@ -5,7 +5,7 @@ import { tokenJWT, idGenerator } from "../helpers/token.js";
 import { registryEmail, emailForgetPassword } from "../helpers/emails.js";
 
 const formLogin = (req, res) => {
-    const functionName = "UserContoller.formLogin"
+    const functionName = "AuthControllers.formLogin"
     console.log(functionName , 'start');
 
     res.render('auth/login', {
@@ -16,7 +16,7 @@ const formLogin = (req, res) => {
 }
 
 const autentication = async (req, res) => {
-    const functionName = "UserContoller.autentication"
+    const functionName = "AuthControllers.autentication"
     console.log(functionName , 'start');
 
     await check('email').isEmail().withMessage('Email es requerido').run(req);
@@ -81,11 +81,10 @@ const autentication = async (req, res) => {
         secure:true
     }).redirect('/mis-propiedades')
     
-
 }
 
 const formRegister = (req, res) => {
-    const functionName = "UserContoller.formRegister"
+    const functionName = "AuthControllers.formRegister"
     console.log(functionName , 'start');
 
     console.log('csrfToken', req.csrfToken());
@@ -99,7 +98,7 @@ const formRegister = (req, res) => {
 }
 
 const registration = async (req, res) => {
-    const functionName = "UserContoller.registration"
+    const functionName = "AuthControllers.registration"
     console.log(functionName , 'start');
 
     // Validacion!!!
@@ -186,7 +185,7 @@ const registration = async (req, res) => {
 
 // Comprobamos la cuenta
 const checkAccount = async (req, res) => {
-    const functionName = "UserContoller.checkAccount"
+    const functionName = "AuthControllers.checkAccount"
     console.log(functionName , 'start');
 
     const { token } = req.params;
@@ -226,7 +225,7 @@ const checkAccount = async (req, res) => {
 }
 
 const formForgetPassword = (req, res) => {
-    const functionName = "UserContoller.formForgetPassword"
+    const functionName = "AuthControllers.formForgetPassword"
     console.log(functionName , 'start');
     
     res.render('auth/olvide-password', {
@@ -238,7 +237,7 @@ const formForgetPassword = (req, res) => {
 }
 
 const resetPassword = async (req, res) => {
-    const functionName = "UserContoller.resetPassword"
+    const functionName = "AuthControllers.resetPassword"
     console.log(functionName , 'start');
 
     // Validacion!!!
@@ -307,7 +306,7 @@ const resetPassword = async (req, res) => {
 }
 
 const checkToken = async (req, res) => {
-    const functionName = "UserContoller.checkToken"
+    const functionName = "AuthControllers.checkToken"
     console.log(functionName , 'start');
 
     const { token } = req.params;
@@ -336,7 +335,7 @@ const checkToken = async (req, res) => {
 }
 
 const newPassword = async (req, res) => {
-    const functionName = "UserContoller.newPassword"
+    const functionName = "AuthControllers.newPassword"
     console.log(functionName , 'start');
 
     await check('password').isLength({ min: 6 }).withMessage('Password es requerido y de al menos 6 caracteres').run(req);
@@ -387,7 +386,7 @@ const newPassword = async (req, res) => {
 
 }
 
-export const UserControllers = {
+export const AuthControllers = {
     formLogin,
     autentication,
     formRegister,

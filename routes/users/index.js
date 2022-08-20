@@ -1,23 +1,23 @@
 import express from 'express';
-import { UserControllers } from '../../controllers/index.js';
+import { AuthControllers } from '../../controllers/index.js';
 
 const userRouter = express.Router();
 
-userRouter.get('/login', UserControllers.formLogin) 
-userRouter.post('/login', UserControllers.autentication) 
+userRouter.get('/login', AuthControllers.formLogin) 
+userRouter.post('/login', AuthControllers.autentication) 
 
-userRouter.get('/register', UserControllers.formRegister)
+userRouter.get('/register', AuthControllers.formRegister)
 
-userRouter.post('/register', UserControllers.registration)
+userRouter.post('/register', AuthControllers.registration)
 
-userRouter.get('/checkAccount/:token', UserControllers.checkAccount)
+userRouter.get('/checkAccount/:token', AuthControllers.checkAccount)
 
-userRouter.get('/olvide-password', UserControllers.formForgetPassword)
+userRouter.get('/olvide-password', AuthControllers.formForgetPassword)
 
-userRouter.post('/olvide-password', UserControllers.resetPassword)
+userRouter.post('/olvide-password', AuthControllers.resetPassword)
 
 // Almacenamiento nuevo pass
-userRouter.get('/olvide-password/:token', UserControllers.checkToken);
-userRouter.post('/olvide-password/:token', UserControllers.newPassword);
+userRouter.get('/olvide-password/:token', AuthControllers.checkToken);
+userRouter.post('/olvide-password/:token', AuthControllers.newPassword);
 
 export default userRouter

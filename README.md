@@ -50,3 +50,14 @@ npm i jsonwebtoken
 
 Cross site request forgery (CSRF)
 Nos sirve para validaciones en nuestros formularios
+
+npm i -D webpack webpack-cli
+
+Herramienta que nos permite ejecutar varias tareas al mismo tiempo
+npm i -D concurrently 
+
+
+
+##### NOTAS
+MYSQL con DOCKER (revisar)
+sudo docker run --name=mysql-container -p 8100:3306 -e MYSQL_ROOT_PASSWORD=juan -e MYSQL_DATABASE=test-docker-db -d mysql

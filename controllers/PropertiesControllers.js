@@ -6,7 +6,22 @@ const admin = (req, res) => {
 
     res.render('properties/admin', {
         pagina: 'Mis propiedades',
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
+        barra: true
+    })
+
+    console.log(functionName , 'end');
+
+}
+
+const create = (req, res) => {
+    const functionName = "PropertiesContoller.create"
+    console.log(functionName , 'start');
+
+    res.render('properties/create', {
+        pagina: 'Crear propiedad',
+        csrfToken: req.csrfToken(),
+        barra: true
     })
 
     console.log(functionName , 'end');
@@ -14,5 +29,6 @@ const admin = (req, res) => {
 }
 
 export const PropertiesControllers = {
-    admin
+    admin,
+    create
 }

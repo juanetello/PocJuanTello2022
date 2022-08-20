@@ -1,8 +1,7 @@
 import express from "express";
 import csrf from "csurf";
 import cookieParser from "cookie-parser";
-import userRouter from "./routes/users/index.js";
-import propertiesRouter from "./routes/properties/index.js";
+import mainRouter from "./routes/index.js";
 import database from "./config/db.js";
 
 // crear una app de express y el puerto
@@ -39,8 +38,7 @@ app.set('views', './views');
 app.use(express.static('public'));
 
 // Routing
-app.use('/auth', userRouter);
-app.use('/', propertiesRouter);
+app.use(mainRouter);
 
 // Aca le decimos en que puerto queremos que corrar, lo pasamos por params y arrancamos el proyecto
 app.listen(port, () => {
