@@ -28,6 +28,13 @@ const User = dataBase.define('users', {
             const salt = await bcrypt.genSalt(13)
             user.password = await bcrypt.hash(user.password, salt);
         }
+    },
+    scopes: {
+        deleteDataToShow:{
+            attributes: {
+                exclude:['password', 'token', 'confirm', 'createdAt', 'updatedAt']                
+            }
+        }
     }
 });
 

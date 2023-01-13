@@ -8,7 +8,8 @@ import database from "./config/db.js";
 const app = express();
 const port = process.env.PORT || 4343;
 
-// Habilitar lectura de datos de formularios
+// Habilitar lectura de datos de formularios cuando son de tipo texto, pass, email, etc
+// No puede leer cuando subimos archivos
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
